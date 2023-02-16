@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Groupe 3R -Admin- {% block title %}{% endblock %}</title>
+        
+        {# Favicon #}
+        <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('images/favicon/apple-touch-icon.png') }}">
+        <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('images/favicon/favicon-32x32.png') }}">
+        <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('images/favicon/favicon-16x16.png') }}">
+        <link rel="manifest" href="{{ asset('images/favicon/site.webmanifest') }}">
+        <link rel="mask-icon" href="{{ asset('images/favicon/safari-pinned-tab.svg') }}" color="#5bbad5">
+        <meta name="msapplication-TileColor" content="#da532c">
+        <meta name="theme-color" content="#ffffff">
+
+        {# Font awesome #}
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+
+        {# Font family #}
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Poppins&display=swap" rel="stylesheet">
+
+
+
+       {# Jquery #}
+       {% block jquery %}{% endblock %}
+
+
+       {# Tiny #}
+       {% block tiny %}{% endblock %}
+
+
+       {# Datatables #}
+       {% block Datatables %}{% endblock %}
+
+
+       {# select2 #}
+       {% block select2 %}{% endblock %}
+
+
+       {% block encore_css %}
+            {{ encore_entry_link_tags('app') }}
+       {% endblock %}
+
+
+       {% block encore_js %}
+            {{ encore_entry_script_tags('app') }}
+        {% endblock %}
+
+        <link rel="stylesheet" href="{{ asset('admin_css/admin.css') }}">
+    </head>    
+
+    <body>    
+
+        <div class="d-flex" id="wrapper">
+
+            {# Sidebar #}
+            {% include "layouts/sidebar/_sidebar_admin.html.twig" %}
+
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+
+                {# Barre de navigation #}
+                {% include "layouts/nav/_nav_admin.html.twig" %}
+
+                {# Le contenu spécifique à chaque page #}
+                <main class="container-fluid px-4">
+                    {% block main %}{% endblock %}
+                </main>
+            </div>
+        </div>
+    
+        <script>
+            let el = document.getElementById("wrapper");
+            let toggleButton = document.getElementById("menu-toggle");
+
+            toggleButton.onclick = function () {
+                el.classList.toggle("toggled");
+            };
+        </script>
+    </body>
+</html>

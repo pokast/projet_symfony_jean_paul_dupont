@@ -1,0 +1,7 @@
+<h2>Verification de votre compte sur l'interface du Groupe 3R </h2>
+
+<p>Veuillez cliquer sur le lien dessous pour vérifier votre compte</p>
+
+<a href="{{ absolute_url(path('visitor.registration.email_verif', {'id':user_id, 'token':token })) }}">cliquer ici</a>
+
+<p>Vous devez vérifier votre compte avant le : {{ expires_at }}</p>
